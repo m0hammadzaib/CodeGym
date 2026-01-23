@@ -6,7 +6,7 @@ app.use(express.static('public'))
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World22!')
+  res.send('Hello World22 Zaib!')
 })
 app.get('/about', (req, res) => {
   res.send('About')
@@ -14,9 +14,12 @@ app.get('/about', (req, res) => {
 app.get('/info', (req, res) => {
   res.send('Information')
 })
-app.get('/info/:slug', (req, res) => {
-  res.send(`Hey infromation about${req.params.slug}`)
+app.get('/users/:username',(req,res)=>{
+  res.send(`This is ${req.params.username} here.....`)
+  console.log(req.params); //will output parameters 
+  console.log(req.query); //will output query
 })
+
 
 
 app.listen(port, () => {
