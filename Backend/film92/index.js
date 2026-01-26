@@ -3,10 +3,15 @@ const app = express()
 const port = 3000
 
 app.get('/',(req,res)=>{
-    res.send("Hello Express")
+    let siteName = "BootStrap"
+    let searchText = "SearchNow"
+      res.render("index",{siteName:siteName,searchText:searchText})
 })
-app.get('/nav',(req,res)=>{
-    res.sendFile('templates/index.html',{root:__dirname})
+app.get('/blog/:slug',(req,res)=>{
+     let blogTital = "BootStrap why and when?"
+    let blogContent = "Its a good Framwork"
+      res.render("blogpost",{blogTital:blogTital, blogContent: blogContent})
+  
 })
 
 app.listen(port,()=>{
