@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+app.set("views", "ejs"); 
+
 app.get('/',(req,res)=>{
     let siteName = "BootStrap"
     let searchText = "SearchNow"
