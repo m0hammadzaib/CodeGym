@@ -12,6 +12,10 @@
 
 -- SELECT DATE(created_at),COUNT(username) FROM users GROUP BY DATE(created_at);
 
+-- SELECT gender,COUNT(*) FROM users GROUP BY gender HAVING COUNT(*)>2;
+
+SELECT gender,COUNT(*) FROM users GROUP BY gender HAVING gender='male'
+
 
 
 
