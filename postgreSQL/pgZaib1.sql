@@ -1,0 +1,21 @@
+-- CREATE TABLE customer(
+--  id SERIAL PRIMARY KEY,
+--  first_name VARCHAR(30) NOT NULL,
+--  last_name VARCHAR(30) NOT NULL,
+--  email VARCHAR(60) NOT NULL,
+--  company VARCHAR(60) NOT NULL,
+--  street VARCHAR(50) NOT NULL,
+--  city VARCHAR(50) NOT NULL,
+--  state VARCHAR(3) NOT NULL,
+--  zip INT  NOT NULL,
+--  phone VARCHAR(20) NOT NULL,
+--  birthdate DATE NOT NULL,
+--  sex CHAR(1) NOT NULL,
+--  date_created TIMESTAMP NOT NULL
+-- );
+
+-- INSERT INTO customer (first_name, last_name,email,  phone ,company, street, city, state , zip , birthdate, sex , date_created)
+
+-- VALUES(
+-- 'Zaib','Ahmed','zaibfr4@gmail.com','76613389891','Zepto','Katra','Azamgarh','UP','276001','08-10-2000','M',current_timestamp
+-- )
