@@ -1,42 +1,44 @@
 import React from 'react'
-import { useState ,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const App = () => {
+  const [notes, setnotes] = useState([]);
 
-  const [count, setcount] = useState(0);
-  count = 5;
+  const addNote =()=>{
+  const newNote={
+    id:Date.now(),
+    title:"newOneZaib",
+    content:"this is new notes adding in existing array bro just to check the C function..."
+  }
+  // setnotes([...notes,newNote]); //using spread operator  & note will show at the end of the array list
+  // setNotes(prev => [newNote, ...prev]); // using spread operator also but note will show at the top of the array list 
+  // setnotes(prev => prev.concat(newNote)); //using concatn method(words same as spread operator)
 
-  console.log(count);
+}
 
-// const [notes, setNotes] = useState({});
+const oldArr = [
+  { name: "Zaib" }
+];
 
-//  const newNote= {
-//   id: 3,
-//   title: "New",
-//   content: "Hello"
-// };
+// const newArr = [...oldArr]; shallow copy 
+// newArr[0].name = "rahul";
+// console.log(oldArr);
+const deepCopy = JSON.parse(JSON.stringify(oldArr));
+deepCopy[0].name = "Ali";
 
-//  const addNote = (newNote) => {
-//   setNotes(prevNotes => ({
-//     ...prevNotes,
-//     [newNote.id]: newNote
-//   }));
-// };
+console.log(oldArr);
 
+
+
+
+useEffect(() => {
+    console.log("Updated Notes:", notes);
+  }, [notes]);
 
   return (
-    <div>
-      
+    <div className='flex justify-center items-center w-screen h-screen bg-olive-700'>
+      <button className='bg-white text-black font-extrabold px-3 py-3 rounded-2xl' onClick={addNote}>Add</button>
     </div>
-    // <div className='bg-olive-900 w-screen h-screen flex justify-center items-center'>
-    //   <div>{Object.values(notes).map(n=>(
-    //    <div className='font-extrabold text-white' key={n.id}>{n.title}
-    //    <span className='text-red-600 font-light'>{n.content}</span>
-    //    </div>
-       
-    //   ))}</div>
-    //   <div><button className='p-4 bg-white text-black rounded-2xl text-2xl fixed top-10 left-10' onClick={() => addNote(newNote)}>Add</button></div>
-    // </div>
   )
 }
 
