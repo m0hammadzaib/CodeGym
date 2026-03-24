@@ -15,7 +15,7 @@ const RedUse = () => {
   const [state, dispatch] = useReducer(reducer, 0);
   return (
     <div>
-      <h1>{state}</h1>
+      <h1 className="text-white font-extrabold">{state}</h1>
       <div className="flex gap-3">
         <button
           onClick={() => dispatch({ type: "INCREMENT" })}
@@ -30,6 +30,7 @@ const RedUse = () => {
           Dcr
         </button>
       </div>
+      <button onClick={()=>dispatch({type:"ALERT"})}></button>
     </div>
   );
 };

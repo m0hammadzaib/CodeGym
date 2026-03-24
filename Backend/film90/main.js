@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   res.send('Hello Express World!')
 })
 app.get('/about', (req, res) => {
-  res.send('Hello About!')
+  res.send('Hello About Zaib!')
 })
 app.get('/contact', (req, res) => {
   res.send('Hello Contact!')
