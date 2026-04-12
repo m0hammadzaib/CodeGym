@@ -1,11 +1,12 @@
 {
   "name": "backendapi",
   "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
-    "dev": "nodemon main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/main.js",
+    "start": "node src/main.js",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev --name init"
   },
   "keywords": [],
   "author": "",
