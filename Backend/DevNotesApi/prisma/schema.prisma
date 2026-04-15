@@ -22,12 +22,5 @@ model Note{
   title String 
   content String
   createdAt DateTime @default(now())
-  userId 
-
-}
-model Tag{
-
-}
-model NoteTag{
-
+  userId  Int
 }

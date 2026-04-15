@@ -1,10 +1,15 @@
-require('dotenv').config()
-const { PrismaNeon } = require('@prisma/adapter-neon')
-const { PrismaClient } = require('@prisma/client')
+import dotenv from 'dotenv';
+dotenv.config();
+
+import { PrismaClient } from '@prisma/client';
+import { PrismaNeon } from '@prisma/adapter-neon';
 
 const adapter = new PrismaNeon({
   connectionString: process.env.DATABASE_URL,
-})
+});
 
-const prisma = new PrismaClient({ adapter })
-module.exports = prisma
+const prisma = new PrismaClient({ adapter });
+
+export default prisma;
+
+

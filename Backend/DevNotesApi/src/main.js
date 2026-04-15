@@ -1,30 +1,41 @@
-require('dotenv').config()
-const express = require('express')
-const prisma = require('./db')
+import dotenv from 'dotenv';
+dotenv.config();
 
-const app = express()
-app.use(express.json())
+import prisma from './db.js';
+import express from 'express';
 
-app.get('/', (req, res) => res.send('Server chal raha hai bhai'))
-app.get('/users', async (req, res) => {
+const app = express();
+app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
+
+app.get('/find', async (req, res) => {
   try {
-    const users = await prisma.user.findMany()
-    res.json(users)
+    const allUsers = await prisma.user.findMany();
+    res.json(allUsers);
   } catch (error) {
-    res.status(500).json({ message: 'Error fetching users' })
+    res.status(500).json({ error: error.message });
   }
-})
-app.post('/users', async (req, res) => {
-  try {
-    const { email, name } = req.body
-    const user = await prisma.user.create({ data: { email, name } })
-    res.status(201).json(user)
-  } catch (error) {
-    res.status(500).json({ message: 'Error creating user' })
-  }
+});
+
+app.post('/notes', async (req,res)=>{
+  const {title,content,userId} = req.body;
+try{
+  const note = await prisma.note.create({
+    data:{
+      title,
+      content,
+      userId
+    }
+  })
+  res.status(200).json({
+    message:"Notes uploaded successfully"
+  })
+}catch{
+  res.status(500).json({ error: error.message });
+}
 })
 
-const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`)
-})
+  console.log(`App is running on Port : ${PORT}`);
+});
