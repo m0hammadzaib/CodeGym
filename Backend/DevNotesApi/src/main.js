@@ -36,6 +36,24 @@ try{
 }
 })
 
+app.put('/notes/:id', async (req,res)=>{
+  const id = parseInt(req.params.id);
+  const {title,content} = req.body;
+
+  try{
+    updateNote = await prisma.note.update({
+      where:{id},
+      data:{
+        title,
+        content
+      }
+    });
+    res.json(updateNote)
+  }catch{
+    res.status(500).json({ error: error.message });
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`App is running on Port : ${PORT}`);
 });
