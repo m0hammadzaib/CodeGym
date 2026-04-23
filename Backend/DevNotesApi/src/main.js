@@ -54,6 +54,17 @@ app.put('/notes/:id', async (req,res)=>{
   }
 })
 
+app.delete('/notes/:id', async (req,res)=>{
+  const id = parseInt(req.params.id);
+  try{
+    const deleteNote = await prisma.note.delete({
+      where:{id}
+    })
+    res.json(deleteNote)
+  }catch{
+    res.status(500).json({error: error.message});
+  }
+})
 app.listen(PORT, () => {
   console.log(`App is running on Port : ${PORT}`);
 });
